@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillUp - Learn, Play & Grow</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= LOGIN PAGE ================= -->
+
+<div id="loginPage" class="auth-page">
+
+    <div class="auth-box">
+
+        <h1>🚀 SkillUp</h1>
+        <p class="tagline">Learn, Play & Grow</p>
+
+        <h2>Login</h2>
+
+        <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter Email"
+        >
+
+        <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter Password"
+        >
+
+        <button onclick="login()">Login</button>
+
+        <p>
+            Don't have an account?
+            <span class="link" onclick="showCreateAccount()">
+                Create Account
+            </span>
+        </p>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CREATE ACCOUNT ================= -->
+
+<div id="createAccountPage" class="auth-page hidden">
+
+    <div class="auth-box">
+
+        <h1>🚀 SkillUp</h1>
+        <p class="tagline">Create your account</p>
+
+        <h2>Create Account</h2>
+
+        <input
+            type="text"
+            id="signupName"
+            placeholder="Enter Name"
+        >
+
+        <input
+            type="email"
+            id="signupEmail"
+            placeholder="Enter Email"
+        >
+
+        <input
+            type="password"
+            id="signupPassword"
+            placeholder="Create Password"
+        >
+
+        <button onclick="createAccount()">Create Account</button>
+
+        <p>
+            Already have an account?
+            <span class="link" onclick="showLogin()">
+                Login
+            </span>
+        </p>
+
+        <p id="signupMessage"></p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN APP ================= -->
+
+<div id="appPage" class="hidden">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            🚀 SkillUp
+        </div>
+        <div class = "foundar">
+            Foundar : <strong>Hariom Patel and Vedika Yadav</strong>
+        </div>
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </header>
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome">
+
+        <h1 id="welcomeUser">
+            Welcome to SkillUp 👋
+        </h1>
+
+        <p>
+            Learn new skills, play quizzes and grow every day.
+        </p>
+
+    </section>
+
+
+    <!-- MENU -->
+
+    <nav class="menu">
+
+        <button onclick="showSection('home')">
+            🏠 Home
+        </button>
+
+        <button onclick="showSection('quiz')">
+            🧠 Quiz
+        </button>
+
+        <button onclick="showSection('shayari')">
+            ✨ Shayari
+        </button>
+
+        <button onclick="showSection('resume')">
+            📄 Resume Builder
+        </button>
+
+        <button onclick="showSection('refer')">
+            🎁 Refer & Earn
+        </button>
+
+    </nav>
+
+
+    <!-- ================= HOME ================= -->
+
+    <section id="home" class="section">
+
+        <h2>SkillUp Features</h2>
+
+        <div class="cards">
+
+            <div class="card" onclick="showSection('quiz')">
+                <div class="icon">🧠</div>
+                <h3>Quiz</h3>
+                <p>Test your programming knowledge.</p>
+            </div>
+
+            <div class="card" onclick="showSection('shayari')">
+                <div class="icon">✨</div>
+                <h3>Shayari</h3>
+                <p>Read interesting Shayari.</p>
+            </div>
+
+            <div class="card" onclick="showSection('resume')">
+                <div class="icon">📄</div>
+                <h3>Resume Builder</h3>
+                <p>Create your basic resume.</p>
+            </div>
+
+            <div class="card" onclick="showSection('refer')">
+                <div class="icon">🎁</div>
+                <h3>Refer & Earn</h3>
+                <p>Share SkillUp with friends.</p>
+            </div>
+            <div class="card" onclick="showSection('pdfMaker')">
+    <div class="icon">📕</div>
+    <h3>PDF Maker</h3>
+    <p>Create and save your own PDF.</p>
+</div>
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUIZ ================= -->
+
+    <section id="quiz" class="section hidden">
+
+        <h2>🧠 Programming Quiz</h2>
+
+        <div class="quiz-box">
+
+            <h3 id="question">
+                Question will appear here
+            </h3>
+
+            <div id="answers"></div>
+
+            <p id="quizResult"></p>
+
+            <button onclick="nextQuestion()">
+                Next Question
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SHAYARI ================= -->
+
+    <section id="shayari" class="section hidden">
+
+        <h2>✨ Shayari</h2>
+
+        <div class="shayari-box">
+
+            <p id="shayariText">
+                मेहनत इतनी खामोशी से करो,
+                कि सफलता शोर मचा दे। 🚀
+            </p>
+
+            <button onclick="newShayari()">
+                New Shayari
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RESUME ================= -->
+
+    <section id="resume" class="section hidden">
+
+        <h2>📄 Resume Builder</h2>
+
+        <div class="resume-form">
+
+            <input
+                type="text"
+                id="resumeName"
+                placeholder="Full Name"
+            >
+
+            <input
+                type="email"
+                id="resumeEmail"
+                placeholder="Email"
+            >
+
+            <input
+                type="text"
+                id="resumePhone"
+                placeholder="Phone"
+            >
+
+            <input
+                type="text"
+                id="resumeEducation"
+                placeholder="Education"
+            >
+
+            <input
+                type="text"
+                id="resumeSkills"
+                placeholder="Skills"
+            >
+
+            <textarea
+                id="resumeAbout"
+                placeholder="About Yourself"
+            ></textarea>
+
+            <button onclick="generateResume()">
+                Generate Resume
+            </button>
+
+        </div>
+
+        <div id="resumeOutput" class="resume-output hidden"></div>
+
+    </section>
+
+
+    <!-- ================= REFER ================= -->
+
+    <section id="refer" class="section hidden">
+
+        <h2>🎁 Refer & Earn</h2>
+
+        <div class="refer-box">
+
+            <p>
+                Share SkillUp with your friends!
+            </p>
+
+            <p>
+                Your Referral Code:
+            </p>
+
+            <h2 id="referralCode">
+                SKILLUP
+            </h2>
+
+            <button onclick="copyReferral()">
+                Copy Referral Code
+            </button>
+            <button onclick="shareReferral()">
+    📤 Share Referral Link
+</button>
+
+<button onclick="copyReferralLink()">
+    🔗 Copy Referral Link
+</button>
+
+<p id="shareMessage"></p>
+            <p id="copyMessage"></p>
+
+        </div>
+
+    </section>
+<section id="pdfMaker" class="section hidden">
+
+    <h2>📕 PDF Maker</h2>
+
+    <div class="pdf-maker-box">
+
+        <input
+            type="text"
+            id="pdfTitle"
+            placeholder="Enter PDF Title"
+        >
+
+        <textarea
+            id="pdfContent"
+            placeholder="Write your content here..."
+        ></textarea>
+
+        <button onclick="generatePDF()">
+            📄 Create PDF
+        </button>
+
+    </div>
+
+</section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 SkillUp - Learn, Play & Grow
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
