@@ -358,13 +358,12 @@ onAuthStateChanged(auth, function (user) {
 
 });
 
-
+let currentQuestion = 0;
 // ==========================================
 // SECTIONS
 // ==========================================
-
-window.showSection = function (sectionName) {
-
+window.showSection = function (sectionName)
+{
     const sections =
         document.querySelectorAll(".section");
 
@@ -396,7 +395,6 @@ window.showSection = function (sectionName) {
         loadQuestion();
 
     }
-
 };
 
 
@@ -596,8 +594,8 @@ let answerSelected = false;
 
 // Start Quiz
 
-function startQuiz(language) {
-
+window.startQuiz = function (language)
+{
     currentLanguage = language;
 
     currentQuestionIndex = 0;
