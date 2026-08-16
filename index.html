@@ -201,27 +201,85 @@
 
     <!-- ================= QUIZ ================= -->
 
-    <section id="quiz" class="section hidden">
+<section id="quiz" class="section hidden">
 
-        <h2>🧠 Programming Quiz</h2>
+    <h2>🧠 Programming Quiz</h2>
 
-        <div class="quiz-box">
+    <!-- LANGUAGE SELECTION -->
 
-            <h3 id="question">
-                Question will appear here
-            </h3>
+    <div id="quizLanguages" class="quiz-box">
 
-            <div id="answers"></div>
+        <h3>Select Quiz</h3>
 
-            <p id="quizResult"></p>
+        <p>Choose a programming language:</p>
 
-            <button onclick="nextQuestion()">
-                Next Question
+        <div class="quiz-language-buttons">
+
+            <button onclick="startQuiz('C')">
+                💻 C Quiz
+            </button>
+
+            <button onclick="startQuiz('C++')">
+                ⚡ C++ Quiz
+            </button>
+
+            <button onclick="startQuiz('Python')">
+                🐍 Python Quiz
+            </button>
+
+            <button onclick="startQuiz('Java')">
+                ☕ Java Quiz
             </button>
 
         </div>
 
-    </section>
+    </div>
+
+
+    <!-- QUIZ QUESTIONS -->
+
+    <div id="quizGame" class="quiz-box hidden">
+
+        <h3 id="quizTitle">
+            Programming Quiz
+        </h3>
+
+        <p id="questionNumber"></p>
+
+        <h3 id="question">
+            Question will appear here
+        </h3>
+
+        <div id="answers"></div>
+
+        <p id="quizResult"></p>
+
+        <button onclick="nextQuestion()">
+            Next Question
+        </button>
+
+    </div>
+
+
+    <!-- QUIZ RESULT -->
+
+    <div id="quizFinished" class="quiz-box hidden">
+
+        <h2>🎉 Quiz Completed!</h2>
+
+        <h3 id="finalScore"></h3>
+
+        <button onclick="restartQuiz()">
+            🔄 Restart Quiz
+        </button>
+
+        <button onclick="chooseQuiz()">
+            📚 Choose Another Quiz
+        </button>
+
+    </div>
+
+</section>
 
 
     <!-- ================= SHAYARI ================= -->

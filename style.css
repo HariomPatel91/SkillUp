@@ -226,50 +226,54 @@ header {
 
 /* ---------- QUIZ ---------- */
 
-.quiz-box {
-    max-width: 650px;
-    margin: auto;
-    padding: 30px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-    text-align: center;
+.quiz-language-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.quiz-box h3 {
-    font-size: 20px;
-    margin-bottom: 20px;
-    line-height: 1.5;
+.quiz-language-buttons button {
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
 }
 
-#answers button {
+.quiz-language-buttons button:hover {
+    opacity: 0.9;
+}
+
+.quiz-answer {
     display: block;
     width: 100%;
     padding: 14px;
     margin: 10px 0;
-    border-radius: 11px;
-    background: #f1f5ff;
-    color: #1e3a8a;
-    font-weight: 600;
-}
-
-#answers button:hover {
-    background: #2563eb;
-    color: white;
-}
-
-.quiz-box > button {
-    margin-top: 15px;
-    padding: 13px 28px;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    background: #2563eb;
-    color: white;
-    font-weight: bold;
+    background: white;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
 }
 
-#quizResult {
-    margin-top: 15px;
-    font-weight: bold;
+.quiz-answer:hover {
+    background: #f0f5ff;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    .quiz-language-buttons {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 /* ---------- SHAYARI ---------- */

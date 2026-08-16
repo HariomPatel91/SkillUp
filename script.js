@@ -402,202 +402,369 @@ window.showSection = function (sectionName) {
 
 // ==========================================
 // QUIZ
-// ==========================================
+// ================= PROGRAMMING QUIZ =================
 
-const questions = [
+const quizData = {
 
-    {
-        question:
-            "Which language is known for easy syntax?",
+    C: [
+        {
+            question: "Which function is used to print output in C?",
+            answers: ["input()", "printf()", "print()", "output()"],
+            correct: 1
+        },
+        {
+            question: "Which symbol ends a statement in C?",
+            answers: [".", ",", ";", ":"],
+            correct: 2
+        },
+        {
+            question: "Which data type is used to store an integer?",
+            answers: ["float", "int", "char", "double"],
+            correct: 1
+        },
+        {
+            question: "Which loop executes at least once?",
+            answers: ["for", "while", "do-while", "if"],
+            correct: 2
+        },
+        {
+            question: "Which symbol is used for a single-line comment in C?",
+            answers: ["//", "#", "/*", "--"],
+            correct: 0
+        }
+    ],
 
-        answers: [
-            "Python",
-            "Assembly",
-            "Machine Code",
-            "Binary"
-        ],
+    "C++": [
+        {
+            question: "Who developed C++?",
+            answers: [
+                "Dennis Ritchie",
+                "Bjarne Stroustrup",
+                "James Gosling",
+                "Guido van Rossum"
+            ],
+            correct: 1
+        },
+        {
+            question: "Which keyword is used to create a class in C++?",
+            answers: [
+                "class",
+                "object",
+                "new",
+                "define"
+            ],
+            correct: 0
+        },
+        {
+            question: "Which concept allows the same function name with different parameters?",
+            answers: [
+                "Inheritance",
+                "Encapsulation",
+                "Function Overloading",
+                "Abstraction"
+            ],
+            correct: 2
+        },
+        {
+            question: "Which concept allows one class to acquire properties of another?",
+            answers: [
+                "Inheritance",
+                "Compilation",
+                "Looping",
+                "Casting"
+            ],
+            correct: 0
+        },
+        {
+            question: "Which operator is used to access an object's member?",
+            answers: [".", "#", "@", "$"],
+            correct: 0
+        }
+    ],
 
-        correct: 0
-    },
+    Python: [
+        {
+            question: "Which function is used to display output in Python?",
+            answers: [
+                "echo()",
+                "print()",
+                "display()",
+                "output()"
+            ],
+            correct: 1
+        },
+        {
+            question: "Which symbol is used for comments in Python?",
+            answers: ["//", "#", "/*", "--"],
+            correct: 1
+        },
+        {
+            question: "Which keyword is used to define a function?",
+            answers: [
+                "function",
+                "define",
+                "def",
+                "fun"
+            ],
+            correct: 2
+        },
+        {
+            question: "Which data type stores an ordered collection of items?",
+            answers: [
+                "list",
+                "int",
+                "float",
+                "bool"
+            ],
+            correct: 0
+        },
+        {
+            question: "Which loop is commonly used to iterate over a sequence?",
+            answers: [
+                "for",
+                "switch",
+                "case",
+                "goto"
+            ],
+            correct: 0
+        }
+    ],
 
-    {
-        question:
-            "HTML is used for?",
+    Java: [
+        {
+            question: "Who originally developed Java?",
+            answers: [
+                "James Gosling",
+                "Bjarne Stroustrup",
+                "Dennis Ritchie",
+                "Guido van Rossum"
+            ],
+            correct: 0
+        },
+        {
+            question: "Which keyword is used to create a class in Java?",
+            answers: [
+                "class",
+                "Class",
+                "object",
+                "newclass"
+            ],
+            correct: 0
+        },
+        {
+            question: "Which method is the entry point of a Java program?",
+            answers: [
+                "start()",
+                "run()",
+                "main()",
+                "execute()"
+            ],
+            correct: 2
+        },
+        {
+            question: "Which keyword is used for class inheritance in Java?",
+            answers: [
+                "inherits",
+                "extends",
+                "inherit",
+                "using"
+            ],
+            correct: 1
+        },
+        {
+            question: "Which data type stores whole numbers in Java?",
+            answers: [
+                "float",
+                "char",
+                "int",
+                "boolean"
+            ],
+            correct: 2
+        }
+    ]
 
-        answers: [
-            "Web page structure",
-            "Database",
-            "Operating System",
-            "Antivirus"
-        ],
-
-        correct: 0
-    },
-
-    {
-        question:
-            "CSS is mainly used for?",
-
-        answers: [
-            "Styling web pages",
-            "Creating databases",
-            "Making CPUs",
-            "Sending emails"
-        ],
-
-        correct: 0
-    },
-
-    {
-        question:
-            "JavaScript is used to?",
-
-        answers: [
-            "Add interactivity",
-            "Create hardware",
-            "Make electricity",
-            "Format a hard disk"
-        ],
-
-        correct: 0
-    },
-
-    {
-        question:
-            "What does CPU stand for?",
-
-        answers: [
-            "Central Processing Unit",
-            "Computer Personal Unit",
-            "Central Program Utility",
-            "Control Processing User"
-        ],
-
-        correct: 0
-    }
-
-];
+};
 
 
-let currentQuestion = 0;
+// Quiz variables
 
+let currentLanguage = "";
+let currentQuestionIndex = 0;
 let score = 0;
+let answerSelected = false;
 
 
-function loadQuestion() {
+// Start Quiz
 
-    const question =
-        questions[currentQuestion];
+function startQuiz(language) {
+
+    currentLanguage = language;
+
+    currentQuestionIndex = 0;
+
+    score = 0;
+
+    answerSelected = false;
+
+    document.getElementById("quizLanguages")
+        .classList.add("hidden");
+
+    document.getElementById("quizFinished")
+        .classList.add("hidden");
+
+    document.getElementById("quizGame")
+        .classList.remove("hidden");
+
+    document.getElementById("quizTitle").innerText =
+        language + " Quiz";
+
+    showQuestion();
+}
 
 
-    document.getElementById("question")
-        .innerText =
-        question.question;
+// Show Question
 
+function showQuestion() {
 
-    const answers =
+    answerSelected = false;
+
+    const questions = quizData[currentLanguage];
+
+    const currentQuestion =
+        questions[currentQuestionIndex];
+
+    document.getElementById("questionNumber").innerText =
+        "Question " +
+        (currentQuestionIndex + 1) +
+        " / " +
+        questions.length;
+
+    document.getElementById("question").innerText =
+        currentQuestion.question;
+
+    document.getElementById("quizResult").innerText = "";
+
+    const answersDiv =
         document.getElementById("answers");
 
+    answersDiv.innerHTML = "";
 
-    answers.innerHTML = "";
 
-
-    question.answers.forEach(function (
-        answer,
-        index
-    ) {
+    currentQuestion.answers.forEach((answer, index) => {
 
         const button =
             document.createElement("button");
 
-
         button.innerText = answer;
 
+        button.className = "quiz-answer";
 
-        button.onclick = function () {
+        button.onclick = function() {
 
-            checkAnswer(index);
+            if (answerSelected) {
+                return;
+            }
+
+            answerSelected = true;
+
+            if (index === currentQuestion.correct) {
+
+                score++;
+
+                button.innerText =
+                    answer + " ✅";
+
+                document.getElementById("quizResult")
+                    .innerText = "Correct Answer! 🎉";
+
+            } else {
+
+                button.innerText =
+                    answer + " ❌";
+
+                document.getElementById("quizResult")
+                    .innerText = "Wrong Answer!";
+
+            }
 
         };
 
-
-        answers.appendChild(button);
+        answersDiv.appendChild(button);
 
     });
 
-
-    document.getElementById("quizResult")
-        .innerText =
-        "Score: " + score;
-
 }
 
 
-function checkAnswer(selected) {
+// Next Question
 
-    const question =
-        questions[currentQuestion];
+function nextQuestion() {
 
+    if (!answerSelected) {
 
-    if (selected === question.correct) {
-
-        score++;
-
-
-        document.getElementById("quizResult")
-            .innerText =
-            "✅ Correct! Score: " + score;
-
-    }
-
-    else {
-
-        document.getElementById("quizResult")
-            .innerText =
-            "❌ Wrong! Correct answer: " +
-            question.answers[question.correct];
-
-    }
-
-}
-
-
-window.nextQuestion = function () {
-
-    currentQuestion++;
-
-
-    if (
-        currentQuestion >=
-        questions.length
-    ) {
-
-        document.getElementById("question")
-            .innerText =
-            "🎉 Quiz Completed!";
-
-
-        document.getElementById("answers")
-            .innerHTML = "";
-
-
-        document.getElementById("quizResult")
-            .innerText =
-            "Your final score is " +
-            score +
-            " / " +
-            questions.length;
-
+        alert("Please select an answer first.");
 
         return;
 
     }
 
+    currentQuestionIndex++;
 
-    loadQuestion();
+    const questions = quizData[currentLanguage];
 
-};
+    if (currentQuestionIndex < questions.length) {
 
+        showQuestion();
+
+    } else {
+
+        finishQuiz();
+
+    }
+
+}
+
+
+// Finish Quiz
+
+function finishQuiz() {
+
+    document.getElementById("quizGame")
+        .classList.add("hidden");
+
+    document.getElementById("quizFinished")
+        .classList.remove("hidden");
+
+    document.getElementById("finalScore").innerText =
+        currentLanguage +
+        " Quiz Score: " +
+        score +
+        " / " +
+        quizData[currentLanguage].length;
+
+}
+
+
+// Restart same Quiz
+
+function restartQuiz() {
+
+    startQuiz(currentLanguage);
+
+}
+
+
+// Choose another Quiz
+
+function chooseQuiz() {
+
+    document.getElementById("quizFinished")
+        .classList.add("hidden");
+
+    document.getElementById("quizLanguages")
+        .classList.remove("hidden");
+
+}
 
 // ==========================================
 // SHAYARI
