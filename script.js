@@ -392,7 +392,7 @@ window.showSection = function (sectionName)
 
         score = 0;
 
-        loadQuestion();
+        showQuestion();
 
     }
 };
