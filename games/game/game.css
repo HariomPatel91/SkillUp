@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background: #111827;
+
+    padding: 30px 20px;
+}
+
+
+.games-container {
+    max-width: 1000px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.games-header {
+    margin-bottom: 40px;
+}
+
+
+.games-header h1 {
+    color: white;
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+.games-header p {
+    color: #9ca3af;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   GAMES GRID
+========================= */
+
+.games-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =========================
+   GAME CARD
+========================= */
+
+.game-card {
+    background: #1f2937;
+
+    padding: 30px 25px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.35);
+
+    transition: 0.25s ease;
+}
+
+
+.game-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.game-icon {
+    font-size: 65px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.game-card h2 {
+    color: white;
+
+    font-size: 27px;
+
+    margin-bottom: 10px;
+}
+
+
+.game-card p {
+    color: #9ca3af;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    min-height: 45px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   PLAY BUTTON
+========================= */
+
+.play-btn {
+    display: block;
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 11px;
+
+    background: #2563eb;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+
+.play-btn:hover {
+    background: #1d4ed8;
+
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-btn {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 13px 25px;
+
+    border-radius: 11px;
+
+    background: #374151;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+
+.back-btn:hover {
+    background: #4b5563;
+
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+
+    .games-header h1 {
+        font-size: 32px;
+    }
+
+
+    .games-header p {
+        font-size: 15px;
+    }
+
+
+    .games-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+
+    .game-card {
+        padding: 25px 20px;
+    }
+
+
+    .game-icon {
+        font-size: 55px;
+    }
+
+
+    .game-card h2 {
+        font-size: 24px;
+    }
+}

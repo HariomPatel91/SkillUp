@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Sky Dodge</title>
+
+    <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <div class="header">
+
+            <div>
+                <h1>☁️ Sky Dodge</h1>
+
+                <p>
+                    Dodge the obstacles!
+                </p>
+            </div>
+
+            <div class="score-box">
+
+                <span>Score</span>
+
+                <strong id="score">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="best-score">
+
+            Best:
+            <span id="bestScore">
+                0
+            </span>
+
+        </div>
+
+
+        <div class="game-area"
+             id="gameArea">
+
+            <div class="player"
+                 id="player">
+                ✈️
+            </div>
+
+        </div>
+
+
+        <div class="controls">
+
+            <button id="leftBtn">
+                ⬅️
+            </button>
+
+            <button id="startBtn">
+                ▶️ Start
+            </button>
+
+            <button id="rightBtn">
+                ➡️
+            </button>
+
+        </div>
+
+
+        <button id="restartBtn">
+            🔄 Restart Game
+        </button>
+
+
+        <div class="game-over hidden"
+             id="gameOver">
+
+            <div class="game-over-box">
+
+                <div class="trophy">
+                    💥
+                </div>
+
+                <h2>
+                    Game Over!
+                </h2>
+
+                <p id="finalScore">
+                    Score: 0
+                </p>
+
+                <button id="playAgainBtn">
+                    🎮 Play Again
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,341 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #111827;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   GAME CONTAINER
+========================= */
+
+.game-container {
+    width: 420px;
+
+    padding: 30px;
+
+    background: #1f2937;
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header h1 {
+    color: white;
+
+    font-size: 36px;
+
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #9ca3af;
+
+    font-size: 16px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.stat {
+    background: #111827;
+
+    padding: 12px 5px;
+
+    border-radius: 12px;
+}
+
+.stat span {
+    display: block;
+
+    color: #9ca3af;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+.stat strong {
+    color: white;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   GAME BOARD
+========================= */
+
+.game-board {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    aspect-ratio: 1 / 1;
+
+    border: none;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    background: #374151;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.4s ease;
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    background: #4b5563;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card.matched {
+    transform: rotateY(180deg);
+
+    box-shadow:
+        0 0 15px rgba(34, 197, 94, 0.6);
+}
+
+
+/* Card front/back */
+
+.card-front,
+.card-back {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 14px;
+
+    backface-visibility: hidden;
+}
+
+
+/* Back */
+
+.card-back {
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 28px;
+}
+
+
+/* Front */
+
+.card-front {
+    background: #f9fafb;
+
+    transform: rotateY(180deg);
+
+    font-size: 32px;
+}
+
+
+/* =========================
+   RESTART BUTTON
+========================= */
+
+#restartBtn,
+#playAgainBtn {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+#restartBtn:hover,
+#playAgainBtn:hover {
+    background: #1d4ed8;
+
+    transform: scale(1.02);
+}
+
+#restartBtn:active,
+#playAgainBtn:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   WIN MESSAGE
+========================= */
+
+.win-message {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.win-box {
+    width: 330px;
+
+    padding: 35px 25px;
+
+    background: #1f2937;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.trophy {
+    font-size: 60px;
+
+    margin-bottom: 10px;
+}
+
+.win-box h2 {
+    color: white;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+.win-box p {
+    color: #d1d5db;
+
+    font-size: 17px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .game-container {
+        width: 100%;
+
+        padding: 22px 15px;
+    }
+
+    .header h1 {
+        font-size: 30px;
+    }
+
+    .game-board {
+        gap: 8px;
+    }
+
+    .card-back {
+        font-size: 22px;
+    }
+
+    .card-front {
+        font-size: 27px;
+    }
+
+    .stat strong {
+        font-size: 18px;
+    }
+}

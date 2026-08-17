@@ -1,0 +1,397 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #111827;
+}
+
+
+/* =========================
+   COMMON
+========================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   START MENU
+========================= */
+
+.menu-container {
+    width: 350px;
+    padding: 35px 30px;
+
+    text-align: center;
+
+    background: #1f2937;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+.menu-container h1 {
+    color: white;
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.menu-container p {
+    color: #d1d5db;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+
+/* Main menu buttons */
+
+.menu-container > button {
+    width: 100%;
+
+    margin: 10px 0;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 12px;
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    background: #2563eb;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.menu-container > button:hover {
+    transform: scale(1.03);
+    background: #1d4ed8;
+}
+
+.menu-container > button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   DIFFICULTY MENU
+========================= */
+
+.difficulty-container {
+    margin-top: 20px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #374151;
+}
+
+.difficulty-container h2 {
+    color: white;
+
+    font-size: 24px;
+
+    margin-bottom: 15px;
+}
+
+.difficulty-container button {
+    display: block;
+
+    width: 100%;
+
+    margin: 10px 0;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.difficulty-container button:hover {
+    transform: scale(1.03);
+}
+
+.difficulty-container button:active {
+    transform: scale(0.97);
+}
+
+
+/* Difficulty colors */
+
+#easyBtn {
+    background: #16a34a;
+}
+
+#easyBtn:hover {
+    background: #15803d;
+}
+
+
+#mediumBtn {
+    background: #ca8a04;
+}
+
+#mediumBtn:hover {
+    background: #a16207;
+}
+
+
+#hardBtn {
+    background: #dc2626;
+}
+
+#hardBtn:hover {
+    background: #b91c1c;
+}
+
+
+#backBtn {
+    background: #4b5563;
+}
+
+#backBtn:hover {
+    background: #374151;
+}
+
+
+/* =========================
+   GAME CONTAINER
+========================= */
+
+.game-container {
+    width: 350px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: #1f2937;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+.game-container h1 {
+    color: white;
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Game status */
+
+#status {
+    color: #d1d5db;
+
+    font-size: 19px;
+
+    margin-bottom: 20px;
+
+    min-height: 24px;
+}
+
+
+/* =========================
+   SCORE
+========================= */
+
+.score {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: white;
+
+    margin-bottom: 20px;
+
+    padding: 10px 12px;
+
+    background: #111827;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   GAME BOARD
+========================= */
+
+.board {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Game cells */
+
+.cell {
+    width: 90px;
+    height: 90px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #374151;
+
+    color: white;
+
+    font-size: 45px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.cell:hover {
+    background: #4b5563;
+
+    transform: scale(1.03);
+}
+
+.cell:active {
+    transform: scale(0.96);
+}
+
+
+/* Winning cells */
+
+.cell.win {
+    background: #16a34a;
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 15px rgba(22, 163, 74, 0.7);
+}
+
+
+/* =========================
+   GAME BUTTONS
+========================= */
+
+#restartBtn,
+#menuBtn {
+    width: 100%;
+
+    border: none;
+
+    padding: 13px;
+
+    margin-top: 8px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+#restartBtn {
+    background: #2563eb;
+}
+
+#restartBtn:hover {
+    background: #1d4ed8;
+
+    transform: scale(1.02);
+}
+
+
+#menuBtn {
+    background: #4b5563;
+}
+
+#menuBtn:hover {
+    background: #374151;
+
+    transform: scale(1.02);
+}
+
+
+#restartBtn:active,
+#menuBtn:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 400px) {
+
+    .menu-container,
+    .game-container {
+        width: 92%;
+
+        padding: 25px 20px;
+    }
+
+    .menu-container h1,
+    .game-container h1 {
+        font-size: 36px;
+    }
+
+    .cell {
+        width: 75px;
+        height: 75px;
+
+        font-size: 38px;
+    }
+
+    .score {
+        font-size: 14px;
+    }
+}

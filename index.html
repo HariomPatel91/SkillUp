@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +12,19 @@
 
 <body>
 
-<!-- ================= LOGIN PAGE ================= -->
+<!-- =====================================================
+     LOGIN PAGE
+===================================================== -->
 
 <div id="loginPage" class="auth-page">
 
     <div class="auth-box">
 
         <h1>🚀 SkillUp</h1>
-        <p class="tagline">Learn, Play & Grow</p>
+
+        <p class="tagline">
+            Learn, Play & Grow
+        </p>
 
         <h2>Login</h2>
 
@@ -34,11 +40,17 @@
             placeholder="Enter Password"
         >
 
-        <button onclick="login()">Login</button>
+        <button onclick="login()">
+            Login
+        </button>
 
         <p>
             Don't have an account?
-            <span class="link" onclick="showCreateAccount()">
+
+            <span
+                class="link"
+                onclick="showCreateAccount()"
+            >
                 Create Account
             </span>
         </p>
@@ -50,14 +62,19 @@
 </div>
 
 
-<!-- ================= CREATE ACCOUNT ================= -->
+<!-- =====================================================
+     CREATE ACCOUNT
+===================================================== -->
 
 <div id="createAccountPage" class="auth-page hidden">
 
     <div class="auth-box">
 
         <h1>🚀 SkillUp</h1>
-        <p class="tagline">Create your account</p>
+
+        <p class="tagline">
+            Create your account
+        </p>
 
         <h2>Create Account</h2>
 
@@ -79,11 +96,17 @@
             placeholder="Create Password"
         >
 
-        <button onclick="createAccount()">Create Account</button>
+        <button onclick="createAccount()">
+            Create Account
+        </button>
 
         <p>
             Already have an account?
-            <span class="link" onclick="showLogin()">
+
+            <span
+                class="link"
+                onclick="showLogin()"
+            >
                 Login
             </span>
         </p>
@@ -95,28 +118,55 @@
 </div>
 
 
-<!-- ================= MAIN APP ================= -->
+<!-- =====================================================
+     MAIN APP
+===================================================== -->
 
 <div id="appPage" class="hidden">
 
-    <!-- HEADER -->
+
+    <!-- =================================================
+         HEADER
+    ================================================= -->
 
     <header>
 
         <div class="logo">
             🚀 SkillUp
         </div>
-        <div class = "foundar">
-            Foundar : <strong>Hariom Patel & Vedika Yadav</strong>
+
+        <div class="foundar">
+            Founder:
+            <strong>
+                Hariom Patel & Vedika Yadav
+            </strong>
         </div>
-        <button class="logout-btn" onclick="logout()">
+
+        <!-- THEME BUTTON -->
+
+        <button
+            class="theme-btn"
+            onclick="toggleTheme()"
+            id="themeButton"
+        >
+            🌙
+        </button>
+
+        <!-- LOGOUT -->
+
+        <button
+            class="logout-btn"
+            onclick="logout()"
+        >
             Logout
         </button>
 
     </header>
 
 
-    <!-- WELCOME -->
+    <!-- =================================================
+         WELCOME
+    ================================================= -->
 
     <section class="welcome">
 
@@ -131,7 +181,9 @@
     </section>
 
 
-    <!-- MENU -->
+    <!-- =================================================
+         NAVIGATION MENU
+    ================================================= -->
 
     <nav class="menu">
 
@@ -141,6 +193,10 @@
 
         <button onclick="showSection('quiz')">
             🧠 Quiz
+        </button>
+
+        <button onclick="showSection('games')">
+            🎮 Games
         </button>
 
         <button onclick="showSection('shayari')">
@@ -155,134 +211,498 @@
             🎁 Refer & Earn
         </button>
 
+        <button onclick="showSection('pdfMaker')">
+            📕 PDF Maker
+        </button>
+
     </nav>
 
 
-    <!-- ================= HOME ================= -->
+    <!-- =================================================
+         HOME
+    ================================================= -->
 
-    <section id="home" class="section">
+    <section
+        id="home"
+        class="section"
+    >
 
-        <h2>SkillUp Features</h2>
+        <h2>
+            🚀 SkillUp Features
+        </h2>
 
         <div class="cards">
 
-            <div class="card" onclick="showSection('quiz')">
-                <div class="icon">🧠</div>
-                <h3>Quiz</h3>
-                <p>Test your programming knowledge.</p>
+
+            <!-- QUIZ CARD -->
+
+            <div
+                class="card"
+                onclick="showSection('quiz')"
+            >
+
+                <div class="icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Quiz
+                </h3>
+
+                <p>
+                    Test your programming knowledge.
+                </p>
+
             </div>
 
-            <div class="card" onclick="showSection('shayari')">
-                <div class="icon">✨</div>
-                <h3>Shayari</h3>
-                <p>Read interesting Shayari.</p>
+
+            <!-- GAMES CARD -->
+
+            <div
+                class="card"
+                onclick="showSection('games')"
+            >
+
+                <div class="icon">
+                    🎮
+                </div>
+
+                <h3>
+                    Play Zone
+                </h3>
+
+                <p>
+                    Play fun games and improve your skills.
+                </p>
+
             </div>
 
-            <div class="card" onclick="showSection('resume')">
-                <div class="icon">📄</div>
-                <h3>Resume Builder</h3>
-                <p>Create your basic resume.</p>
+
+            <!-- SHAYARI CARD -->
+
+            <div
+                class="card"
+                onclick="showSection('shayari')"
+            >
+
+                <div class="icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Shayari
+                </h3>
+
+                <p>
+                    Read interesting Shayari.
+                </p>
+
             </div>
 
-            <div class="card" onclick="showSection('refer')">
-                <div class="icon">🎁</div>
-                <h3>Refer & Earn</h3>
-                <p>Share SkillUp with friends.</p>
+
+            <!-- RESUME CARD -->
+
+            <div
+                class="card"
+                onclick="showSection('resume')"
+            >
+
+                <div class="icon">
+                    📄
+                </div>
+
+                <h3>
+                    Resume Builder
+                </h3>
+
+                <p>
+                    Create your basic resume.
+                </p>
+
             </div>
-            <div class="card" onclick="showSection('pdfMaker')">
-    <div class="icon">📕</div>
-    <h3>PDF Maker</h3>
-    <p>Create and save your own PDF.</p>
-</div>
+
+
+            <!-- REFER CARD -->
+
+            <div
+                class="card"
+                onclick="showSection('refer')"
+            >
+
+                <div class="icon">
+                    🎁
+                </div>
+
+                <h3>
+                    Refer & Earn
+                </h3>
+
+                <p>
+                    Share SkillUp with friends.
+                </p>
+
+            </div>
+
+
+            <!-- PDF CARD -->
+
+            <div
+                class="card"
+                onclick="showSection('pdfMaker')"
+            >
+
+                <div class="icon">
+                    📕
+                </div>
+
+                <h3>
+                    PDF Maker
+                </h3>
+
+                <p>
+                    Create and save your own PDF.
+                </p>
+
+            </div>
+
         </div>
 
     </section>
 
 
-    <!-- ================= QUIZ ================= -->
+    <!-- =================================================
+         QUIZ
+    ================================================= -->
 
-<section id="quiz" class="section hidden">
+    <section
+        id="quiz"
+        class="section hidden"
+    >
 
-    <h2>🧠 Programming Quiz</h2>
+        <h2>
+            🧠 Programming Quiz
+        </h2>
 
-    <!-- LANGUAGE SELECTION -->
 
-    <div id="quizLanguages" class="quiz-box">
+        <!-- LANGUAGE SELECTION -->
 
-        <h3>Select Quiz</h3>
+        <div
+            id="quizLanguages"
+            class="quiz-box"
+        >
 
-        <p>Choose a programming language:</p>
+            <h3>
+                Select Quiz
+            </h3>
 
-        <div class="quiz-language-buttons">
+            <p>
+                Choose a programming language:
+            </p>
 
-            <button onclick="startQuiz('C')">
-                💻 C Quiz
+
+            <div class="quiz-language-buttons">
+
+                <button onclick="startQuiz('C')">
+                    💻 C Quiz
+                </button>
+
+                <button onclick="startQuiz('C++')">
+                    ⚡ C++ Quiz
+                </button>
+
+                <button onclick="startQuiz('Python')">
+                    🐍 Python Quiz
+                </button>
+
+                <button onclick="startQuiz('Java')">
+                    ☕ Java Quiz
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUIZ GAME -->
+
+        <div
+            id="quizGame"
+            class="quiz-box hidden"
+        >
+
+            <h3 id="quizTitle">
+                Programming Quiz
+            </h3>
+
+            <p id="questionNumber"></p>
+
+            <h3 id="question">
+                Question will appear here
+            </h3>
+
+            <div id="answers"></div>
+
+            <p id="quizResult"></p>
+
+            <button onclick="nextQuestion()">
+                Next Question
             </button>
 
-            <button onclick="startQuiz('C++')">
-                ⚡ C++ Quiz
+
+            <!-- ADVERTISEMENT -->
+
+            <div class="ad-container">
+
+                <p>
+                    Advertisement
+                </p>
+
+                <!-- Ad network code later -->
+
+            </div>
+
+        </div>
+
+
+        <!-- QUIZ RESULT -->
+
+        <div
+            id="quizFinished"
+            class="quiz-box hidden"
+        >
+
+            <h2>
+                🎉 Quiz Completed!
+            </h2>
+
+            <h3 id="finalScore"></h3>
+
+            <button onclick="restartQuiz()">
+                🔄 Restart Quiz
             </button>
 
-            <button onclick="startQuiz('Python')">
-                🐍 Python Quiz
-            </button>
-
-            <button onclick="startQuiz('Java')">
-                ☕ Java Quiz
+            <button onclick="chooseQuiz()">
+                📚 Choose Another Quiz
             </button>
 
         </div>
- 
-    <!-- QUIZ QUESTIONS -->
 
-    <div id="quizGame" class="quiz-box hidden">
-        <h3 id="quizTitle">
-            Programming Quiz
-        </h3>
-
-        <p id="questionNumber"></p>
-
-        <h3 id="question">
-            Question will appear here
-        </h3>
-
-        <div id="answers"></div>
-
-        <p id="quizResult"></p>
-
-        <button onclick="nextQuestion()">
-            Next Question
-        </button>
-
-    </div>
+    </section>
 
 
-    <!-- QUIZ RESULT -->
+    <!-- =================================================
+         GAMES / PLAY ZONE
+    ================================================= -->
 
-    <div id="quizFinished" class="quiz-box hidden">
+    <section
+        id="games"
+        class="section hidden"
+    >
 
-        <h2>🎉 Quiz Completed!</h2>
+        <div class="play-zone-header">
 
-        <h3 id="finalScore"></h3>
+            <h2>
+                🎮 SkillUp Play Zone
+            </h2>
 
-        <button onclick="restartQuiz()">
-            🔄 Restart Quiz
-        </button>
+            <p>
+                Play games, have fun and improve your skills!
+            </p>
 
-        <button onclick="chooseQuiz()">
-            📚 Choose Another Quiz
-        </button>
-
-    </div>
-
-</section>
+        </div>
 
 
-    <!-- ================= SHAYARI ================= -->
+        <div class="games-grid">
 
-    <section id="shayari" class="section hidden">
 
-        <h2>✨ Shayari</h2>
+            <!-- =========================================
+                 MEMORY MATCH
+            ========================================== -->
+
+            <div class="game-card">
+
+                <div class="game-image">
+
+                    <img
+                        src="games/images/memory-match.png"
+                        alt="Memory Match Game"
+                        onerror="this.style.display='none'"
+                    >
+
+                    <div class="game-placeholder">
+                        🧠
+                    </div>
+
+                </div>
+
+
+                <div class="game-content">
+
+                    <h3>
+                        🧠 Memory Match
+                    </h3>
+
+                    <p>
+                        Test your memory and concentration.
+                    </p>
+
+                    <a
+                        href="games/memory-match/index.html"
+                        class="play-btn"
+                    >
+                        ▶️ Play Now
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 NUMBER RUSH
+            ========================================== -->
+
+            <div class="game-card">
+
+                <div class="game-image">
+
+                    <img
+                        src="games/images/number-rush.png"
+                        alt="Number Rush Game"
+                        onerror="this.style.display='none'"
+                    >
+
+                    <div class="game-placeholder">
+                        🔢
+                    </div>
+
+                </div>
+
+
+                <div class="game-content">
+
+                    <h3>
+                        🔢 Number Rush
+                    </h3>
+
+                    <p>
+                        Merge numbers and reach 2048!
+                    </p>
+
+                    <a
+                        href="games/Number-Rush/index.html"
+                        class="play-btn"
+                    >
+                        ▶️ Play Now
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 SKY DODGE
+            ========================================== -->
+
+            <div class="game-card">
+
+                <div class="game-image">
+
+                    <img
+                        src="games/images/sky-dodge.png"
+                        alt="Sky Dodge Game"
+                        onerror="this.style.display='none'"
+                    >
+
+                    <div class="game-placeholder">
+                        ☁️
+                    </div>
+
+                </div>
+
+
+                <div class="game-content">
+
+                    <h3>
+                        ☁️ Sky Dodge
+                    </h3>
+
+                    <p>
+                        Dodge obstacles and survive!
+                    </p>
+
+                    <a
+                        href="games/sky-Dodge/index.html"
+                        class="play-btn"
+                    >
+                        ▶️ Play Now
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 X-O RUSH
+            ========================================== -->
+
+            <div class="game-card">
+
+                <div class="game-image">
+
+                    <img
+                        src="games/images/x-o-rush.png"
+                        alt="X-O Rush Game"
+                        onerror="this.style.display='none'"
+                    >
+
+                    <div class="game-placeholder">
+                        ❌⭕
+                    </div>
+
+                </div>
+
+
+                <div class="game-content">
+
+                    <h3>
+                        ❌⭕ X-O Rush
+                    </h3>
+
+                    <p>
+                        Challenge your opponent in Tic-Tac-Toe.
+                    </p>
+
+                    <a
+                        href="games/x-o-rush/index.html"
+                        class="play-btn"
+                    >
+                        ▶️ Play Now
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         SHAYARI
+    ================================================= -->
+
+    <section
+        id="shayari"
+        class="section hidden"
+    >
+
+        <h2>
+            ✨ Shayari
+        </h2>
 
         <div class="shayari-box">
 
@@ -300,11 +720,19 @@
     </section>
 
 
-    <!-- ================= RESUME ================= -->
+    <!-- =================================================
+         RESUME BUILDER
+    ================================================= -->
 
-    <section id="resume" class="section hidden">
+    <section
+        id="resume"
+        class="section hidden"
+    >
 
-        <h2>📄 Resume Builder</h2>
+        <h2>
+            📄 Resume Builder
+        </h2>
+
 
         <div class="resume-form">
 
@@ -349,16 +777,28 @@
 
         </div>
 
-        <div id="resumeOutput" class="resume-output hidden"></div>
+
+        <div
+            id="resumeOutput"
+            class="resume-output hidden"
+        ></div>
 
     </section>
 
 
-    <!-- ================= REFER ================= -->
+    <!-- =================================================
+         REFER & EARN
+    ================================================= -->
 
-    <section id="refer" class="section hidden">
+    <section
+        id="refer"
+        class="section hidden"
+    >
 
-        <h2>🎁 Refer & Earn</h2>
+        <h2>
+            🎁 Refer & Earn
+        </h2>
+
 
         <div class="refer-box">
 
@@ -374,49 +814,72 @@
                 SKILLUP
             </h2>
 
+
             <button onclick="copyReferral()">
-                Copy Referral Code
+                📋 Copy Referral Code
             </button>
+
+
             <button onclick="shareReferral()">
-    📤 Share Referral Link
-</button>
+                📤 Share Referral Link
+            </button>
 
-<button onclick="copyReferralLink()">
-    🔗 Copy Referral Link
-</button>
 
-<p id="shareMessage"></p>
+            <button onclick="copyReferralLink()">
+                🔗 Copy Referral Link
+            </button>
+
+
+            <p id="shareMessage"></p>
+
             <p id="copyMessage"></p>
 
         </div>
 
     </section>
-<section id="pdfMaker" class="section hidden">
 
-    <h2>📕 PDF Maker</h2>
 
-    <div class="pdf-maker-box">
+    <!-- =================================================
+         PDF MAKER
+    ================================================= -->
 
-        <input
-            type="text"
-            id="pdfTitle"
-            placeholder="Enter PDF Title"
-        >
+    <section
+        id="pdfMaker"
+        class="section hidden"
+    >
 
-        <textarea
-            id="pdfContent"
-            placeholder="Write your content here..."
-        ></textarea>
+        <h2>
+            📕 PDF Maker
+        </h2>
 
-        <button onclick="generatePDF()">
-            📄 Create PDF
-        </button>
 
-    </div>
+        <div class="pdf-maker-box">
 
-</section>
+            <input
+                type="text"
+                id="pdfTitle"
+                placeholder="Enter PDF Title"
+            >
 
-    <!-- FOOTER -->
+
+            <textarea
+                id="pdfContent"
+                placeholder="Write your content here..."
+            ></textarea>
+
+
+            <button onclick="generatePDF()">
+                📄 Create PDF
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
 
     <footer>
 
@@ -424,12 +887,95 @@
             © 2026 SkillUp - Learn, Play & Grow
         </p>
 
+        <p>
+            Made with ❤️ by
+            Hariom Patel & Vedika Yadav
+        </p>
+
     </footer>
 
 </div>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script type="module" src="script.js"></script>
 
+
+<!-- =====================================================
+     THEME SCRIPT
+     अगर script.js में पहले से toggleTheme है,
+     तो यह function वहाँ भी रख सकते हैं।
+===================================================== -->
+
+<script>
+
+function toggleTheme() {
+
+    document.body.classList.toggle("dark-theme");
+
+    const button =
+        document.getElementById("themeButton");
+
+    if (
+        document.body.classList.contains("dark-theme")
+    ) {
+
+        button.innerHTML = "☀️";
+
+        localStorage.setItem(
+            "skillupTheme",
+            "dark"
+        );
+
+    } else {
+
+        button.innerHTML = "🌙";
+
+        localStorage.setItem(
+            "skillupTheme",
+            "light"
+        );
+
+    }
+
+}
+
+
+/* Load saved theme */
+
+window.addEventListener("DOMContentLoaded", function () {
+
+    const savedTheme =
+        localStorage.getItem("skillupTheme");
+
+    const button =
+        document.getElementById("themeButton");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-theme");
+
+        if (button) {
+            button.innerHTML = "☀️";
+        }
+
+    } else {
+
+        document.body.classList.remove("dark-theme");
+
+        if (button) {
+            button.innerHTML = "🌙";
+        }
+
+    }
+
+});
+
+</script>
+
 </body>
+
 </html>

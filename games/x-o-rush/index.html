@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>X-O Rush</title>
+
+    <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         MAIN MENU
+    ================================== -->
+
+    <div class="menu-container"
+        id="startMenu">
+
+
+        <h1>X-O Rush</h1>
+
+
+        <p>
+            🎮 Choose Game Mode
+        </p>
+
+
+        <!-- Computer Button -->
+
+        <button id="computerBtn">
+
+            🤖 Play vs Computer
+
+        </button>
+
+
+        <!-- Two Player Button -->
+
+        <button id="twoPlayerBtn">
+
+            👥 Play 2 Players
+
+        </button>
+
+
+        <!-- =================================
+             DIFFICULTY MENU
+        ================================== -->
+
+        <div class="difficulty-container hidden"
+            id="difficultyMenu">
+
+
+            <h2>
+                Select Difficulty
+            </h2>
+
+
+            <button id="easyBtn">
+
+                🟢 Easy
+
+            </button>
+
+
+            <button id="mediumBtn">
+
+                🟡 Medium
+
+            </button>
+
+
+            <button id="hardBtn">
+
+                🔴 Hard
+
+            </button>
+
+
+            <button id="backBtn">
+
+                ← Back
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================
+         GAME SCREEN
+    ================================== -->
+
+    <div class="game-container hidden"
+        id="gameContainer">
+
+
+        <!-- Game Status -->
+
+        <p id="status">
+
+            Your Turn (X)
+
+        </p>
+
+
+
+        <!-- Score -->
+
+        <div class="score">
+
+
+            <span>
+
+                X:
+                <span id="xScore">0</span>
+
+            </span>
+
+
+            <span>
+
+                Draw:
+                <span id="drawScore">0</span>
+
+            </span>
+
+
+            <span>
+
+                O:
+                <span id="oScore">0</span>
+
+            </span>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             GAME BOARD
+        ================================== -->
+
+        <div class="board">
+
+
+            <button
+                class="cell"
+                data-index="0">
+            </button>
+
+
+            <button
+                class="cell"
+                data-index="1">
+            </button>
+
+
+            <button
+                class="cell"
+                data-index="2">
+            </button>
+
+
+
+            <button
+                class="cell"
+                data-index="3">
+            </button>
+
+
+            <button
+                class="cell"
+                data-index="4">
+            </button>
+
+
+            <button
+                class="cell"
+                data-index="5">
+            </button>
+
+
+
+            <button
+                class="cell"
+                data-index="6">
+            </button>
+
+
+            <button
+                class="cell"
+                data-index="7">
+            </button>
+
+
+            <button
+                class="cell"
+                data-index="8">
+            </button>
+
+
+        </div>
+
+
+
+        <!-- Restart -->
+
+        <button id="restartBtn">
+
+            🔄 Restart Game
+
+        </button>
+
+
+
+        <!-- Main Menu -->
+
+        <button id="menuBtn">
+
+            🏠 Main Menu
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
