@@ -358,7 +358,6 @@ onAuthStateChanged(auth, function (user) {
 
 });
 
-let currentQuestion = 0;
 // ==========================================
 // SECTIONS
 // ==========================================
@@ -384,19 +383,16 @@ window.showSection = function (sectionName)
         selectedSection.classList.remove("hidden");
 
     }
-
-
     if (sectionName === "quiz") {
 
-        currentQuestion = 0;
+    currentQuestionIndex = 0;
 
-        score = 0;
+    score = 0;
 
-        showQuestion();
+    showQuestion();
 
     }
 };
-
 
 // ==========================================
 // QUIZ
@@ -695,15 +691,11 @@ function showQuestion() {
 
 
 // Next Question
-
-function nextQuestion() {
+window.nextQuestion = function () {
 
     if (!answerSelected) {
-
         alert("Please select an answer first.");
-
         return;
-
     }
 
     currentQuestionIndex++;
@@ -719,9 +711,7 @@ function nextQuestion() {
         finishQuiz();
 
     }
-
-}
-
+};
 
 // Finish Quiz
 
@@ -1127,5 +1117,25 @@ window.generatePDF = function () {
         printWindow.print();
 
     }, 500);
+};
+window.nextQuestion = function () {
 
+    if (!answerSelected) {
+        alert("Please select an answer first.");
+        return;
+    }
+
+    currentQuestionIndex++;
+
+    const questions = quizData[currentLanguage];
+
+    if (currentQuestionIndex < questions.length) {
+
+        showQuestion();
+
+    } else {
+
+        finishQuiz();
+
+    }
 };
