@@ -2,8 +2,13 @@
 // SKILLUP - FIREBASE JAVASCRIPT
 // ==========================================
 
-// Firebase imports
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+// ==========================================
+// FIREBASE IMPORTS
+// ==========================================
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
     getAuth,
@@ -30,16 +35,19 @@ const firebaseConfig = {
 };
 
 
-// Initialize Firebase
+// ==========================================
+// INITIALIZE FIREBASE
+// ==========================================
+
 const app = initializeApp(firebaseConfig);
 
-// Firebase Authentication
 const auth = getAuth(app);
 
 
 // ==========================================
 // AUTH
 // ==========================================
+
 
 // Show Create Account
 window.showCreateAccount = function () {
@@ -87,7 +95,11 @@ window.createAccount = async function () {
         document.getElementById("signupMessage");
 
 
-    if (name === "" || email === "" || password === "") {
+    if (
+        name === "" ||
+        email === "" ||
+        password === ""
+    ) {
 
         message.innerText =
             "Please fill all fields.";
@@ -123,7 +135,6 @@ window.createAccount = async function () {
             userCredential.user;
 
 
-        // Save user's name in Firebase Authentication
         await updateProfile(user, {
             displayName: name
         });
@@ -151,21 +162,30 @@ window.createAccount = async function () {
         console.error(error);
 
 
-        if (error.code === "auth/email-already-in-use") {
+        if (
+            error.code ===
+            "auth/email-already-in-use"
+        ) {
 
             message.innerText =
                 "This email is already registered.";
 
         }
 
-        else if (error.code === "auth/invalid-email") {
+        else if (
+            error.code ===
+            "auth/invalid-email"
+        ) {
 
             message.innerText =
                 "Please enter a valid email.";
 
         }
 
-        else if (error.code === "auth/weak-password") {
+        else if (
+            error.code ===
+            "auth/weak-password"
+        ) {
 
             message.innerText =
                 "Password is too weak.";
@@ -206,7 +226,10 @@ window.login = async function () {
         document.getElementById("loginMessage");
 
 
-    if (email === "" || password === "") {
+    if (
+        email === "" ||
+        password === ""
+    ) {
 
         message.innerText =
             "Please enter email and password.";
@@ -256,7 +279,10 @@ window.login = async function () {
 
         }
 
-        else if (error.code === "auth/invalid-email") {
+        else if (
+            error.code ===
+            "auth/invalid-email"
+        ) {
 
             message.innerText =
                 "Please enter a valid email.";
@@ -306,6 +332,7 @@ function openApp(user) {
 
     generateReferralCode(user.email);
 
+
     showSection("home");
 
 }
@@ -321,8 +348,10 @@ window.logout = async function () {
 
         await signOut(auth);
 
+
         document.getElementById("appPage")
             .classList.add("hidden");
+
 
         document.getElementById("loginPage")
             .classList.remove("hidden");
@@ -358,11 +387,13 @@ onAuthStateChanged(auth, function (user) {
 
 });
 
+
 // ==========================================
 // SECTIONS
 // ==========================================
-window.showSection = function (sectionName)
-{
+
+window.showSection = function (sectionName) {
+
     const sections =
         document.querySelectorAll(".section");
 
@@ -383,215 +414,372 @@ window.showSection = function (sectionName)
         selectedSection.classList.remove("hidden");
 
     }
+
+
+    // Start Programming Quiz
     if (sectionName === "quiz") {
 
-    currentQuestionIndex = 0;
+        currentQuestionIndex = 0;
 
-    score = 0;
+        score = 0;
 
-    showQuestion();
+        answerSelected = false;
+
+        // Quiz language screen show
+        const quizLanguages =
+            document.getElementById("quizLanguages");
+
+        const quizGame =
+            document.getElementById("quizGame");
+
+        const quizFinished =
+            document.getElementById("quizFinished");
+
+
+        if (quizLanguages) {
+            quizLanguages.classList.remove("hidden");
+        }
+
+        if (quizGame) {
+            quizGame.classList.add("hidden");
+        }
+
+        if (quizFinished) {
+            quizFinished.classList.add("hidden");
+        }
 
     }
+
 };
 
+
 // ==========================================
-// QUIZ
-// ================= PROGRAMMING QUIZ =================
+// PROGRAMMING QUIZ
+// ==========================================
 
 const quizData = {
 
     C: [
+
         {
-            question: "Which function is used to print output in C?",
-            answers: ["input()", "printf()", "print()", "output()"],
+            question:
+                "Which function is used to print output in C?",
+
+            answers: [
+                "input()",
+                "printf()",
+                "print()",
+                "output()"
+            ],
+
             correct: 1
         },
+
         {
-            question: "Which symbol ends a statement in C?",
-            answers: [".", ",", ";", ":"],
+            question:
+                "Which symbol ends a statement in C?",
+
+            answers: [
+                ".",
+                ",",
+                ";",
+                ":"
+            ],
+
             correct: 2
         },
+
         {
-            question: "Which data type is used to store an integer?",
-            answers: ["float", "int", "char", "double"],
+            question:
+                "Which data type is used to store an integer?",
+
+            answers: [
+                "float",
+                "int",
+                "char",
+                "double"
+            ],
+
             correct: 1
         },
+
         {
-            question: "Which loop executes at least once?",
-            answers: ["for", "while", "do-while", "if"],
+            question:
+                "Which loop executes at least once?",
+
+            answers: [
+                "for",
+                "while",
+                "do-while",
+                "if"
+            ],
+
             correct: 2
         },
+
         {
-            question: "Which symbol is used for a single-line comment in C?",
-            answers: ["//", "#", "/*", "--"],
+            question:
+                "Which symbol is used for a single-line comment in C?",
+
+            answers: [
+                "//",
+                "#",
+                "/*",
+                "--"
+            ],
+
             correct: 0
         }
+
     ],
 
+
     "C++": [
+
         {
-            question: "Who developed C++?",
+            question:
+                "Who developed C++?",
+
             answers: [
                 "Dennis Ritchie",
                 "Bjarne Stroustrup",
                 "James Gosling",
                 "Guido van Rossum"
             ],
+
             correct: 1
         },
+
         {
-            question: "Which keyword is used to create a class in C++?",
+            question:
+                "Which keyword is used to create a class in C++?",
+
             answers: [
                 "class",
                 "object",
                 "new",
                 "define"
             ],
+
             correct: 0
         },
+
         {
-            question: "Which concept allows the same function name with different parameters?",
+            question:
+                "Which concept allows the same function name with different parameters?",
+
             answers: [
                 "Inheritance",
                 "Encapsulation",
                 "Function Overloading",
                 "Abstraction"
             ],
+
             correct: 2
         },
+
         {
-            question: "Which concept allows one class to acquire properties of another?",
+            question:
+                "Which concept allows one class to acquire properties of another?",
+
             answers: [
                 "Inheritance",
                 "Compilation",
                 "Looping",
                 "Casting"
             ],
+
             correct: 0
         },
+
         {
-            question: "Which operator is used to access an object's member?",
-            answers: [".", "#", "@", "$"],
+            question:
+                "Which operator is used to access an object's member?",
+
+            answers: [
+                ".",
+                "#",
+                "@",
+                "$"
+            ],
+
             correct: 0
         }
+
     ],
 
+
     Python: [
+
         {
-            question: "Which function is used to display output in Python?",
+            question:
+                "Which function is used to display output in Python?",
+
             answers: [
                 "echo()",
                 "print()",
                 "display()",
                 "output()"
             ],
+
             correct: 1
         },
+
         {
-            question: "Which symbol is used for comments in Python?",
-            answers: ["//", "#", "/*", "--"],
+            question:
+                "Which symbol is used for comments in Python?",
+
+            answers: [
+                "//",
+                "#",
+                "/*",
+                "--"
+            ],
+
             correct: 1
         },
+
         {
-            question: "Which keyword is used to define a function?",
+            question:
+                "Which keyword is used to define a function?",
+
             answers: [
                 "function",
                 "define",
                 "def",
                 "fun"
             ],
+
             correct: 2
         },
+
         {
-            question: "Which data type stores an ordered collection of items?",
+            question:
+                "Which data type stores an ordered collection of items?",
+
             answers: [
                 "list",
                 "int",
                 "float",
                 "bool"
             ],
+
             correct: 0
         },
+
         {
-            question: "Which loop is commonly used to iterate over a sequence?",
+            question:
+                "Which loop is commonly used to iterate over a sequence?",
+
             answers: [
                 "for",
                 "switch",
                 "case",
                 "goto"
             ],
+
             correct: 0
         }
+
     ],
 
+
     Java: [
+
         {
-            question: "Who originally developed Java?",
+            question:
+                "Who originally developed Java?",
+
             answers: [
                 "James Gosling",
                 "Bjarne Stroustrup",
                 "Dennis Ritchie",
                 "Guido van Rossum"
             ],
+
             correct: 0
         },
+
         {
-            question: "Which keyword is used to create a class in Java?",
+            question:
+                "Which keyword is used to create a class in Java?",
+
             answers: [
                 "class",
                 "Class",
                 "object",
                 "newclass"
             ],
+
             correct: 0
         },
+
         {
-            question: "Which method is the entry point of a Java program?",
+            question:
+                "Which method is the entry point of a Java program?",
+
             answers: [
                 "start()",
                 "run()",
                 "main()",
                 "execute()"
             ],
+
             correct: 2
         },
+
         {
-            question: "Which keyword is used for class inheritance in Java?",
+            question:
+                "Which keyword is used for class inheritance in Java?",
+
             answers: [
                 "inherits",
                 "extends",
                 "inherit",
                 "using"
             ],
+
             correct: 1
         },
+
         {
-            question: "Which data type stores whole numbers in Java?",
+            question:
+                "Which data type stores whole numbers in Java?",
+
             answers: [
                 "float",
                 "char",
                 "int",
                 "boolean"
             ],
+
             correct: 2
         }
+
     ]
 
 };
 
 
-// Quiz variables
+// ==========================================
+// QUIZ VARIABLES
+// ==========================================
 
 let currentLanguage = "";
+
 let currentQuestionIndex = 0;
+
 let score = 0;
+
 let answerSelected = false;
 
 
-// Start Quiz
+// ==========================================
+// START QUIZ
+// ==========================================
 
-window.startQuiz = function (language)
-{
+window.startQuiz = function (language) {
+
     currentLanguage = language;
 
     currentQuestionIndex = 0;
@@ -600,130 +788,194 @@ window.startQuiz = function (language)
 
     answerSelected = false;
 
+
     document.getElementById("quizLanguages")
         .classList.add("hidden");
+
 
     document.getElementById("quizFinished")
         .classList.add("hidden");
 
+
     document.getElementById("quizGame")
         .classList.remove("hidden");
 
-    document.getElementById("quizTitle").innerText =
+
+    document.getElementById("quizTitle")
+        .innerText =
         language + " Quiz";
 
+
     showQuestion();
-}
+
+};
 
 
-// Show Question
+// ==========================================
+// SHOW QUESTION
+// ==========================================
 
 function showQuestion() {
 
     answerSelected = false;
 
-    const questions = quizData[currentLanguage];
+
+    const questions =
+        quizData[currentLanguage];
+
 
     const currentQuestion =
         questions[currentQuestionIndex];
 
-    document.getElementById("questionNumber").innerText =
+
+    document.getElementById("questionNumber")
+        .innerText =
         "Question " +
         (currentQuestionIndex + 1) +
         " / " +
         questions.length;
 
-    document.getElementById("question").innerText =
+
+    document.getElementById("question")
+        .innerText =
         currentQuestion.question;
 
-    document.getElementById("quizResult").innerText = "";
+
+    document.getElementById("quizResult")
+        .innerText = "";
+
 
     const answersDiv =
         document.getElementById("answers");
 
+
     answersDiv.innerHTML = "";
 
 
-    currentQuestion.answers.forEach((answer, index) => {
+    currentQuestion.answers.forEach(
+        function (answer, index) {
 
-        const button =
-            document.createElement("button");
+            const button =
+                document.createElement("button");
 
-        button.innerText = answer;
 
-        button.className = "quiz-answer";
+            button.innerText = answer;
 
-        button.onclick = function() {
 
-            if (answerSelected) {
-                return;
-            }
+            button.className =
+                "quiz-answer";
 
-            answerSelected = true;
 
-            if (index === currentQuestion.correct) {
+            button.onclick = function () {
 
-                score++;
+                if (answerSelected) {
+                    return;
+                }
 
-                button.innerText =
-                    answer + " ✅";
 
-                document.getElementById("quizResult")
-                    .innerText = "Correct Answer! 🎉";
+                answerSelected = true;
 
-            } else {
 
-                button.innerText =
-                    answer + " ❌";
+                if (
+                    index ===
+                    currentQuestion.correct
+                ) {
 
-                document.getElementById("quizResult")
-                    .innerText = "Wrong Answer!";
+                    score++;
 
-            }
 
-        };
+                    button.innerText =
+                        answer + " ✅";
 
-        answersDiv.appendChild(button);
 
-    });
+                    document
+                        .getElementById("quizResult")
+                        .innerText =
+                        "Correct Answer! 🎉";
+
+                }
+
+                else {
+
+                    button.innerText =
+                        answer + " ❌";
+
+
+                    document
+                        .getElementById("quizResult")
+                        .innerText =
+                        "Wrong Answer!";
+
+                }
+
+            };
+
+
+            answersDiv.appendChild(button);
+
+        }
+    );
 
 }
 
 
-// Next Question
+// ==========================================
+// NEXT QUIZ QUESTION
+// ==========================================
+
 window.nextQuestion = function () {
 
     if (!answerSelected) {
-        alert("Please select an answer first.");
+
+        alert(
+            "Please select an answer first."
+        );
+
         return;
     }
 
+
     currentQuestionIndex++;
 
-    const questions = quizData[currentLanguage];
 
-    if (currentQuestionIndex < questions.length) {
+    const questions =
+        quizData[currentLanguage];
+
+
+    if (
+        currentQuestionIndex <
+        questions.length
+    ) {
 
         showQuestion();
 
-    } else {
+    }
+
+    else {
 
         finishQuiz();
 
     }
+
 };
 
-// Finish Quiz
+
+// ==========================================
+// FINISH QUIZ
+// ==========================================
 
 function finishQuiz() {
 
     document.getElementById("quizGame")
         .classList.add("hidden");
 
+
     document.getElementById("quizFinished")
         .classList.remove("hidden");
 
-    document.getElementById("finalScore").innerText =
+
+    document.getElementById("finalScore")
+        .innerText =
         currentLanguage +
         " Quiz Score: " +
         score +
@@ -733,26 +985,32 @@ function finishQuiz() {
 }
 
 
-// Restart same Quiz
+// ==========================================
+// RESTART QUIZ
+// ==========================================
 
-function restartQuiz() {
+window.restartQuiz = function () {
 
     startQuiz(currentLanguage);
 
-}
+};
 
 
-// Choose another Quiz
+// ==========================================
+// CHOOSE ANOTHER QUIZ
+// ==========================================
 
-function chooseQuiz() {
+window.chooseQuiz = function () {
 
     document.getElementById("quizFinished")
         .classList.add("hidden");
 
+
     document.getElementById("quizLanguages")
         .classList.remove("hidden");
 
-}
+};
+
 
 // ==========================================
 // SHAYARI
@@ -764,7 +1022,7 @@ const shayaris = [
 
     "आज की मेहनत ही कल की पहचान बनेगी। 💪",
 
-    "सपने वो नहीं जो नींद में आते हैं, सपने वो हैं जो आपको सोने नहीं देते। ✨",
+    "सपने वो हैं जो आपको आगे बढ़ने की प्रेरणा दें। ✨",
 
     "छोटे कदम भी एक दिन बड़ी मंजिल तक ले जाते हैं। 🌟",
 
@@ -903,38 +1161,68 @@ function generateReferralCode(email) {
     }
 
 
-    document.getElementById("referralCode")
-        .innerText =
-        code;
+    const referralCode =
+        document.getElementById("referralCode");
+
+
+    if (referralCode) {
+
+        referralCode.innerText =
+            code;
+
+    }
 
 }
 
 
 window.copyReferral = function () {
 
+    const referralCode =
+        document.getElementById("referralCode");
+
+
+    if (!referralCode) {
+        return;
+    }
+
+
     const code =
-        document.getElementById("referralCode")
-            .innerText;
+        referralCode.innerText;
 
 
     navigator.clipboard.writeText(code);
 
 
-    document.getElementById("copyMessage")
-        .innerText =
-        "✅ Referral code copied!";
+    const message =
+        document.getElementById("copyMessage");
+
+
+    if (message) {
+
+        message.innerText =
+            "✅ Referral code copied!";
+
+    }
 
 };
 
 
 function getReferralLink() {
 
+    const referralCode =
+        document.getElementById("referralCode");
+
+
+    if (!referralCode) {
+        return window.location.href;
+    }
+
+
     return (
         window.location.origin +
         window.location.pathname +
         "?ref=" +
-        document.getElementById("referralCode")
-            .innerText
+        referralCode.innerText
     );
 
 }
@@ -949,9 +1237,16 @@ window.copyReferralLink = function () {
     navigator.clipboard.writeText(link);
 
 
-    document.getElementById("shareMessage")
-        .innerText =
-        "✅ Referral link copied!";
+    const message =
+        document.getElementById("shareMessage");
+
+
+    if (message) {
+
+        message.innerText =
+            "✅ Referral link copied!";
+
+    }
 
 };
 
@@ -994,9 +1289,16 @@ window.shareReferral = async function () {
         navigator.clipboard.writeText(link);
 
 
-        document.getElementById("shareMessage")
-            .innerText =
-            "✅ Link copied! You can share it with your friends.";
+        const message =
+            document.getElementById("shareMessage");
+
+
+        if (message) {
+
+            message.innerText =
+                "✅ Link copied! You can share it with your friends.";
+
+        }
 
     }
 
@@ -1117,25 +1419,19 @@ window.generatePDF = function () {
         printWindow.print();
 
     }, 500);
+
 };
-window.nextQuestion = function () {
 
-    if (!answerSelected) {
-        alert("Please select an answer first.");
-        return;
-    }
 
-    currentQuestionIndex++;
+// ==========================================
+// LEARNING GAMES
+// ==========================================
 
-    const questions = quizData[currentLanguage];
+window.openLearningGame = function (gameName) {
 
-    if (currentQuestionIndex < questions.length) {
+    window.location.href =
+        "learning-games/" +
+        gameName +
+        "/index.html";
 
-        showQuestion();
-
-    } else {
-
-        finishQuiz();
-
-    }
 };

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="game-container">
+
+    <!-- LEVEL SCREEN -->
+    <div id="levelScreen">
+        <h1>🧠 Brain Challenge</h1>
+        <p>Choose your difficulty level</p>
+
+        <div class="levels">
+            <button class="easy" onclick="startGame('easy')">
+                🟢 Easy
+            </button>
+
+            <button class="medium" onclick="startGame('medium')">
+                🟡 Medium
+            </button>
+
+            <button class="hard" onclick="startGame('hard')">
+                🔴 Hard
+            </button>
+        </div>
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div id="gameScreen" class="hidden">
+
+        <h1 id="levelTitle"></h1>
+
+        <div class="score">
+            Score: <span id="score">0</span>
+        </div>
+
+        <div class="question-box">
+            <h2 id="question"></h2>
+
+            <div id="answers"></div>
+        </div>
+
+        <button id="nextBtn" onclick="nextQuestion()" class="next-btn">
+            Next Question
+        </button>
+
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div id="resultScreen" class="hidden">
+
+        <h1>🎉 Game Completed!</h1>
+
+        <p>Your Score:</p>
+
+        <h2 id="finalScore"></h2>
+
+        <button onclick="restartGame()" class="restart-btn">
+            🔄 Play Again
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
